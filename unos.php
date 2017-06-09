@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
-
+    <div class="container">
+      <h1>Unos filmova</h1>
     <form method="post" action="" enctype="multipart/form-data">
-      Naslov:<input type="text" name="naslov">
+      <div class="form-group">
+      Naslov:<input type="text" name="naslov" class="form-control">
       <br />
-      Zanr:<select name="zanr">
+      Zanr:<select name="zanr" class="form-control">
         <?php
         //Popunjavanje padajuceg izbornika sa popisom zanrova
         require('class.zanr.php');
@@ -26,13 +28,14 @@
         ?>
       </select>
       <br />
-      Godina: <input type="text" name="godina">
+      Godina: <input type="text" name="godina" class="form-control">
       <br />
-      Trajanje:<input type="text" name="trajanje">
+      Trajanje:<input type="text" name="trajanje" class="form-control">
       <br />
-      Slika: <input type="file" name="datoteka" value="">
+      Slika: <input type="file" name="datoteka" value="" class="btn btn-default btn-file">
       <br />
-      <input type="submit" name="gumb" value="Submit">
+      <input type="submit" name="gumb" value="Submit" class="btn btn-default">
+    </div>
     </form>
 
     <?php
@@ -93,7 +96,7 @@
     $result = $conn_get->query($sql_get);
     if ($result->num_rows > 0)
     {
-      echo '<table border="1">';
+      echo '<table border="1" class="table-striped">';
       while($row = $result->fetch_assoc())
       {
         echo '<tr>';
@@ -106,6 +109,6 @@
 
     ?>
 
-
+  </div>
   </body>
 </html>
