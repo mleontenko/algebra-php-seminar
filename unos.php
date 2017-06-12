@@ -47,6 +47,10 @@
       $sql_del = "DELETE FROM filmovi WHERE id = $id_del";
       $result = $conn_del->query($sql_del);
       $conn_del->close();
+
+      //brisanje slike
+      $path = $_POST["slika_brisi"];
+      if(unlink($path)) echo "Film obrisan";
     }
 
     if (isset ($_REQUEST['gumb']))
@@ -101,7 +105,8 @@
       {
         echo '<tr>';
         echo '<td><img src="'.$row['slika'].'" alt="slika" style="max-width:100px;"></td><td>'.$row['naslov'].'</td><td>'.$row['godina'].'</td>
-              <td>'.$row['trajanje'].'</td><td><form method="POST" action=""><button type="submit" name="btn_brisi" value="'.$row['id'].'">Obriši</button></form></td>';
+              <td>'.$row['trajanje'].'</td><td><form method="POST" action=""><button type="submit" name="btn_brisi" value="'.$row['id'].'">Obriši</button>
+              <input type=hidden name=slika_brisi value="'.$row['slika'].'" value="value1"></form></td>';
         echo '</tr>';
       }
       echo '</table>';
