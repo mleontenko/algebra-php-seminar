@@ -19,7 +19,7 @@ class film
     $this->trajanje = array();
     $this->slika = array();
 
-    $res = $this->db->query("SELECT naslov, godina, trajanje
+    $res = $this->db->query("SELECT naslov, godina, trajanje, slika
                               FROM filmovi
                               WHERE filmovi.naslov LIKE '".$slovo."%'");
 
@@ -28,10 +28,11 @@ class film
       $this->naslov[] = $red['naslov'];
       $this->godina[] = $red['godina'];
       $this->trajanje[] = $red['trajanje'];
+      $this->slika[] = $red['slika'];
     }
   }
 }
 
 //test
-//$test = new film('F');
+//$test = new film('H');
 //var_dump($test);
